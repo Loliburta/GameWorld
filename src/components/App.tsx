@@ -6,18 +6,21 @@ import { Result as gameType } from "../utils/getRelevantGames/interface";
 // const apiKey = `key=${process.env.REACT_APP_API_KEY}`;
 
 export const App = () => {
-  const [relevantGames, setRelevantGames] = useState<gameType[]>();
+  const [gameList, setGameList] = useState<gameType[]>();
   useEffect(() => {
     const fetchRelevantGames = async () => {
-      setRelevantGames(await getRelevantGames());
+      setGameList(await getRelevantGames());
     };
     fetchRelevantGames();
   }, []);
   return (
     <div>
       <Navbar />
-      {relevantGames &&
-        relevantGames?.map((game: gameType) => <Game {...game} />)}
+      <div className="app__gameList">
+        {gameList?.map((game: gameType) => (
+          <Game {...game} />
+        ))}
+      </div>
     </div>
   );
 };

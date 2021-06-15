@@ -1,0 +1,11 @@
+.app {
+  &__gameList {
+    max-width: 1500px;
+    padding-top: 25px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+}
