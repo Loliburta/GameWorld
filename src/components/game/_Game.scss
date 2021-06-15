@@ -21,13 +21,26 @@
       border-radius: 0px 200px 0px 0px;
     }
     &__rating {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
       position: absolute;
-      top: 12%;
+      top: 15%;
       right: 0px;
-      background-color: #ffc107;
-      color: black;
-      border-radius: 10px;
-      padding: 4px 10px;
+      background: linear-gradient(90deg, #41295a 0%, #2f0743 100%);
+      border-radius: 12px;
+      &__star {
+        color: #ffc107;
+        margin-left: 7px;
+        font-size: 19px;
+      }
+      &__text {
+        font-family: "Roboto", sans-serif;
+        font-size: 19px;
+        color: #ffc107;
+        border-radius: 10px;
+        padding: 4px 12px 4px 5px;
+      }
     }
     &__name {
       position: absolute;
@@ -39,7 +52,7 @@
     }
   }
   &__bot {
-    padding-top: 15px;
+    padding-top: 20px;
     padding-left: 15px;
     padding-right: 40px;
     background-color: #18233d;
@@ -48,14 +61,16 @@
     height: 200px;
 
     &__text {
-      font-size: 1.15rem;
-      letter-spacing: 1px;
-      word-spacing: 5px;
+      font-size: 1.2rem;
+      letter-spacing: 0.1px;
 
+      word-spacing: 5px;
+      font-family: "Staatliches", cursive;
+      color: hsl(0, 0%, 89%);
       overflow: hidden;
       text-overflow: ellipsis;
       display: -webkit-box;
-      -webkit-line-clamp: 7;
+      -webkit-line-clamp: 6;
       -webkit-box-orient: vertical;
     }
   }

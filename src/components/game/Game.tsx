@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { getGameDetails } from "../../utils/getGameDetails/getGameDetails";
 import { Result as gameType } from "../../utils/getRelevantGames/interface";
 import { Types as DetailsType } from "../../utils/getGameDetails/interface";
+import { Icon } from "@iconify/react";
+import star from "@iconify-icons/carbon/star-filled";
 export const Game: React.FC<gameType> = (game) => {
   const [gameDetails, setGameDetails] = useState<DetailsType>();
   const resize = (link: string, width: number) => {
@@ -22,7 +24,12 @@ export const Game: React.FC<gameType> = (game) => {
           alt="background"
           className="game__top__img"
         />
-        <div className="game__top__rating">{game.rating.toFixed(2)}/ 5</div>
+        <div className="game__top__rating">
+          <Icon icon={star} className="game__top__rating__star" />
+          <div className="game__top__rating__text">
+            {game.rating.toFixed(2)}/5
+          </div>
+        </div>
         <div className="game__top__name">{game.name}</div>
         <div className="game__top__platforms">
           {game.platforms.map(
