@@ -1,11 +1,29 @@
 .app {
   &__gameList {
-    max-width: 1500px;
-    padding-top: 25px;
+    max-width: 1700px;
+    padding: 50px 25px 0px 25px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    grid-gap: 80px clamp(15px, 4vw, 100px);
     margin: 0 auto;
-    display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
+  }
+}
+
+@media (max-width: 885px) {
+  .app {
+    &__gameList {
+      grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+    }
+  }
+}
+@media (max-width: 480px) {
+  .app {
+    &__gameList {
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      padding: 40px 10px 0px 10px;
+    }
   }
 }

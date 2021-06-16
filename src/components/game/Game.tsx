@@ -30,11 +30,15 @@ export const Game: React.FC<gameType> = (game) => {
             {game.rating.toFixed(2)}/5
           </div>
         </div>
-        <div className="game__top__name">{game.name}</div>
+        <div className="game__top__name">
+          <div className="game__top__name__text">{game.name}</div>
+        </div>
         <div className="game__top__platforms">
-          {game.platforms.map(
-            (platformElement) => platformElement.platform.name + " "
-          )}
+          {game.platforms.map((platformElement) => (
+            <div className="game__top__platforms__platform">
+              {platformElement.platform.name}
+            </div>
+          ))}
         </div>
       </div>
 
