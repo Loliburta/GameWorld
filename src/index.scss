@@ -2,7 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Staatliches&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Voces&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Voces&display=swap");
 // Variables
 @import "./utils/Variables";
 // Other SCSS
@@ -21,7 +21,7 @@ body,
   margin: 0;
   padding: 0;
   -webkit-font-smoothing: antialiased;
-  background-color: #17172a;
+  background-color: $-c-base;
   font-family: "Roboto", sans-serif;
-  color: white;
+  color: $-c-f-base;
 }

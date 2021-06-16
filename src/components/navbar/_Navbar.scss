@@ -1,7 +1,7 @@
 .navbar {
   display: flex;
   flex-direction: row;
-  background-color: hsl(222, 18%, 11%);
+  background-color: $-c-nav;
   justify-content: space-between;
   align-items: center;
   box-shadow: 0px 22px 38px rgba(0, 0, 0, 0.25);
@@ -15,12 +15,12 @@
     align-items: center;
     &__input {
       width: clamp(250px, 50vw, 700px);
-      color: #ece6df;
+      color: $-c-f-base;
       margin-left: 20px;
       padding-right: 60px;
       height: 50px;
       padding-left: clamp(10px, 2.5vw, 20px);
-      background: hsl(0, 0%, 20%);
+      background: $-c-inputDark;
       box-shadow: 0px 0px 7px 5px rgba(6, 7, 8, 0.25);
       border-radius: 6px;
       border: 0px;
@@ -31,44 +31,42 @@
       transition: background-color 0.25s ease;
       &:focus {
         outline: none;
-        background-color: hsl(0, 0%, 23%);
+        background-color: #3b3b3b;
       }
     }
     &__icon {
-      position: absolute;
-      right: 40px;
       display: flex;
-      font-size: 30px;
-      color: #efba6f;
+      position: absolute;
+      right: 43px;
+      font-size: 33px;
+      color: $-c-darkYellow;
     }
   }
 }
 
+// Mobile //
 @media (max-width: 480px) {
   .navbar {
     padding: 14px 15px;
-
     &__searchBox {
-      position: absolute;
-      transition: 0.4s linear;
       display: flex;
       flex-direction: row;
+      transition: 0.4s linear;
       position: relative;
       width: 80px;
       justify-content: center;
       align-items: center;
-
       &:focus-within {
         position: absolute;
         right: 15px;
-        background-color: red;
         width: calc(100vw - 30px);
-        color: #ece6df;
+        color: $-c-f-base;
         .navbar__searchBox__input {
-          color: #ece6df;
+          color: $-c-f-base;
           width: calc(100vw - 30px);
           padding-right: 65px;
-          transition: width 0.4s linear, color 0.7s;
+          transition: width 0.4s linear, background-color 0.4s linear,
+            color 0.7s;
           &::placeholder {
             color: #999;
             transition: color 0.5s linear;
@@ -77,24 +75,22 @@
       }
 
       &__input {
-        color: hsl(0, 0%, 20%);
         position: absolute;
         right: 0px;
-        margin: 0px;
         display: flex;
+        margin: 0px;
+        color: $-c-inputDark;
         appearance: none;
         width: 100%;
-        border: none;
-        outline: none;
-
-        transition: width 0.4s linear;
+        transition: width 0.4s linear, background-color 0.4s linear;
         &::placeholder {
-          color: hsl(0, 0%, 20%);
+          color: $-c-inputDark;
         }
       }
       &__icon {
         position: absolute;
-        right: 25px;
+        right: 22px;
+        font-size: 35px;
       }
     }
   }

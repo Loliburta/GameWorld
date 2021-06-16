@@ -54,7 +54,7 @@
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
-        color: #e3e3e3;
+        color: $-c-f-base;
       }
     }
     &__platforms {
@@ -76,20 +76,17 @@
     }
   }
   &__bot {
-    padding-top: 20px;
-    padding-left: 15px;
-    padding-right: 40px;
+    padding: 20px 40px 0px 15px;
     background-color: #18233d;
     box-shadow: 3px 0px 0px $-c-yellow;
     border-radius: 0px 0px 0px 6px;
     height: 200px;
-
     &__text {
       font-size: 1.2rem;
       letter-spacing: 0.1px;
       word-spacing: 5px;
       font-family: "Staatliches", cursive;
-      color: hsl(0, 0%, 89%);
+      color: $-c-f-base;
       overflow: hidden;
       text-overflow: ellipsis;
       display: -webkit-box;
