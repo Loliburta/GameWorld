@@ -1,32 +1,45 @@
 .navbar {
   display: flex;
   flex-direction: row;
-  background-color: #171a21;
+  background-color: hsl(222, 18%, 11%);
   justify-content: space-between;
   align-items: center;
   box-shadow: 0px 22px 38px rgba(0, 0, 0, 0.25);
   padding: 14px 30px;
   &__logo {
-    font-size: 10px;
     width: 150px;
   }
-  &__search {
-    width: clamp(250px, 50vw, 700px);
-    margin-left: 20px;
-    height: 50px;
-    padding-left: clamp(10px, 2.5vw, 20px);
-    background: hsl(0, 0%, 20%);
-    box-shadow: 0px 0px 7px 5px rgba(6, 7, 8, 0.25);
-    border-radius: 6px;
-    border: 0px;
-    font-family: "IBM Plex Mono", monospace;
-    font-weight: 400;
-    font-size: clamp(19px, 3vw, 23px);
-    letter-spacing: -0.005em;
-    color: #ece6df;
-    &:focus {
-      outline: none;
-      background: hsl(0, 0%, 23%);
+  &__searchBox {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    &__input {
+      width: clamp(250px, 50vw, 700px);
+      color: #ece6df;
+      margin-left: 20px;
+      padding-right: 60px;
+      height: 50px;
+      padding-left: clamp(10px, 2.5vw, 20px);
+      background: hsl(0, 0%, 20%);
+      box-shadow: 0px 0px 7px 5px rgba(6, 7, 8, 0.25);
+      border-radius: 6px;
+      border: 0px;
+      font-family: "IBM Plex Mono", monospace;
+      font-weight: 400;
+      font-size: clamp(19px, 3vw, 23px);
+      letter-spacing: -0.005em;
+      transition: background-color 0.25s ease;
+      &:focus {
+        outline: none;
+        background-color: hsl(0, 0%, 23%);
+      }
+    }
+    &__icon {
+      position: absolute;
+      right: 40px;
+      display: flex;
+      font-size: 30px;
+      color: #efba6f;
     }
   }
 }
@@ -34,8 +47,55 @@
 @media (max-width: 480px) {
   .navbar {
     padding: 14px 15px;
-    &__search {
-      display: none;
+
+    &__searchBox {
+      position: absolute;
+      transition: 0.4s linear;
+      display: flex;
+      flex-direction: row;
+      position: relative;
+      width: 80px;
+      justify-content: center;
+      align-items: center;
+
+      &:focus-within {
+        position: absolute;
+        right: 15px;
+        background-color: red;
+        width: calc(100vw - 30px);
+        color: #ece6df;
+        .navbar__searchBox__input {
+          color: #ece6df;
+          width: calc(100vw - 30px);
+          padding-right: 65px;
+          transition: width 0.4s linear, color 0.7s;
+          &::placeholder {
+            color: #999;
+            transition: color 0.5s linear;
+          }
+        }
+      }
+
+      &__input {
+        color: hsl(0, 0%, 20%);
+        position: absolute;
+        right: 0px;
+        margin: 0px;
+        display: flex;
+        appearance: none;
+        width: 100%;
+        border: none;
+        outline: none;
+
+        transition: width 0.4s linear;
+        &::placeholder {
+          color: hsl(0, 0%, 20%);
+        }
+      }
+      &__icon {
+        position: absolute;
+        right: 25px;
+      }
     }
   }
 }
