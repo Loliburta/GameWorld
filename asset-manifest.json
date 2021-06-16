@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/GameWorld/static/css/main.514dd336.chunk.css",
+    "main.css": "/GameWorld/static/css/main.940a1c2b.chunk.css",
     "main.js": "/GameWorld/static/js/main.be0c701d.chunk.js",
     "main.js.map": "/GameWorld/static/js/main.be0c701d.chunk.js.map",
     "runtime-main.js": "/GameWorld/static/js/runtime-main.fa4ecc73.js",
@@ -8,14 +8,14 @@
     "static/js/2.4efa4c17.chunk.js": "/GameWorld/static/js/2.4efa4c17.chunk.js",
     "static/js/2.4efa4c17.chunk.js.map": "/GameWorld/static/js/2.4efa4c17.chunk.js.map",
     "index.html": "/GameWorld/index.html",
-    "static/css/main.514dd336.chunk.css.map": "/GameWorld/static/css/main.514dd336.chunk.css.map",
+    "static/css/main.940a1c2b.chunk.css.map": "/GameWorld/static/css/main.940a1c2b.chunk.css.map",
     "static/js/2.4efa4c17.chunk.js.LICENSE.txt": "/GameWorld/static/js/2.4efa4c17.chunk.js.LICENSE.txt",
     "static/media/Logo.0d1db6e9.svg": "/GameWorld/static/media/Logo.0d1db6e9.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.fa4ecc73.js",
     "static/js/2.4efa4c17.chunk.js",
-    "static/css/main.514dd336.chunk.css",
+    "static/css/main.940a1c2b.chunk.css",
     "static/js/main.be0c701d.chunk.js"
   ]
 }
