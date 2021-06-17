@@ -10,13 +10,15 @@
     width: 150px;
   }
   &__searchBox {
+    margin-left: 20px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    position: relative;
     align-items: center;
+    justify-content: center;
     &__input {
       width: clamp(250px, 50vw, 700px);
       color: $-c-f-base;
-      margin-left: 20px;
       padding-right: 60px;
       height: 50px;
       padding-left: clamp(10px, 2.5vw, 20px);
@@ -29,6 +31,7 @@
       font-size: clamp(19px, 3vw, 23px);
       letter-spacing: -0.005em;
       transition: background-color 0.25s ease;
+      z-index: 110;
       &:focus {
         outline: none;
         background-color: #3b3b3b;
@@ -37,13 +40,48 @@
     &__icon {
       display: flex;
       position: absolute;
-      right: 43px;
+      right: 15px;
       font-size: 33px;
       color: $-c-darkYellow;
+      z-index: 120;
+    }
+    &__results {
+      position: relative;
+      width: 100%;
+      max-width: 100%;
+      flex-direction: column;
+      z-index: 100;
+      visibility: hidden;
+
+      &__list {
+        list-style: none;
+        position: absolute;
+        width: 100%;
+        max-width: 100%;
+        margin: 0px;
+        background-color: $-c-inputDark;
+        max-height: 500px;
+        overflow: auto;
+        &__item {
+          margin: 0px 0px 5px 0px;
+          padding: 5px 10px;
+          list-style: none;
+          overflow-y: hidden;
+        }
+      }
     }
   }
 }
 
+.navbar {
+  &:focus-within {
+    .navbar__searchBox__results {
+      visibility: visible;
+      transition: 2s width linear;
+      padding-top: 15px;
+    }
+  }
+}
 // Mobile //
 @media (max-width: 480px) {
   .navbar {
@@ -71,6 +109,12 @@
             color: #999;
             transition: color 0.5s linear;
           }
+        }
+        .navbar__searchBox__results__list {
+          overflow: hidden;
+          padding-top: 40px;
+          visibility: visible;
+          transition: 0.2s width linear;
         }
       }
 
