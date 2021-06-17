@@ -35,7 +35,10 @@ export const Game: React.FC<gameType> = (game) => {
         </div>
         <div className="game__top__platforms">
           {game.platforms.map((platformElement) => (
-            <div className="game__top__platforms__platform">
+            <div
+              className="game__top__platforms__platform"
+              key={platformElement.platform.name}
+            >
               {platformElement.platform.name}
             </div>
           ))}

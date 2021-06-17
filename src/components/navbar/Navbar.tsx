@@ -11,14 +11,13 @@ export const Navbar = () => {
   const [query, setQuery] = useState("");
   const [searchQuery] = useDebounce(query, 1000);
   const [searchResults, setSearchResults] = useState<searchType | undefined>();
-  const [games, setGames] = useState<searchType["results"]>();
+  const [games, setGames] = useState<searchType["results"] | undefined>();
   const navRef = useRef(null);
-  const [resultsVisible, setResultsVisible] = useState(false);
+  const [resultsVisible, setResultsVisible] = useState(true);
   useClickOutside(navRef, setResultsVisible);
 
   useEffect(() => {
     if (searchQuery === "") {
-      setSearchResults(undefined);
       return;
     }
     const fetchSearchGames = async () => {
@@ -31,20 +30,18 @@ export const Navbar = () => {
   }, [searchQuery]);
   useEffect(() => {
     if (query === "") {
-      setResultsVisible(false);
-    } else {
-      setResultsVisible(true);
+      setGames(undefined);
     }
   }, [query]);
 
   return (
-    <div
-      className="navbar"
-      ref={navRef}
-      onClick={() => setResultsVisible(true)}
-    >
+    <div className="navbar">
       <img src={Logo} alt="Logo" className="navbar__logo" />
-      <div className="navbar__searchBox">
+      <div
+        className="navbar__searchBox"
+        ref={navRef}
+        onClick={() => setResultsVisible(true)}
+      >
         <input
           id="search"
           type="text"
@@ -56,12 +53,21 @@ export const Navbar = () => {
         <label htmlFor="search" className="navbar__searchBox__icon">
           <Icon icon={searchIcon} className="navbar__searchBox__icon__svg" />
         </label>
-        {resultsVisible && (
-          <div className="navbar__searchBox__results">
+        {resultsVisible && games && (
+          <div
+            className={
+              resultsVisible
+                ? "navbar__searchBox__results"
+                : "navbar__searchBox__results--hidden"
+            }
+          >
             <ul className="navbar__searchBox__results__list">
               {games?.map((game) => {
                 return (
-                  <li className="navbar__searchBox__results__list__item">
+                  <li
+                    className="navbar__searchBox__results__list__item"
+                    key={game.name}
+                  >
                     {game.name}
                   </li>
                 );

@@ -18,7 +18,7 @@ export const App = () => {
       <Navbar />
       <div className="app__gameList">
         {gameList?.map((game: gameType) => (
-          <Game {...game} />
+          <Game {...game} key={game.id} />
         ))}
       </div>
     </div>
