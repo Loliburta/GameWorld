@@ -11,6 +11,7 @@
   }
   &__searchBox {
     margin-left: 20px;
+    height: 100%;
     display: flex;
     flex-direction: column;
     position: relative;
@@ -56,7 +57,24 @@
       display: flex;
       margin: 0px;
       height: 0px;
-      padding: 0px;
+      padding: 0px 0px 0px 0px;
+      top: -3px;
+      ::-webkit-scrollbar {
+        width: 5px;
+        height: 5px;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: rgb(192, 181, 181);
+        width: 2px;
+        border-radius: 10px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #edeef5;
+      }
+      ::-webkit-scrollbar-track {
+        background: rgba(0, 0, 0, 0);
+        border-radius: 10px;
+      }
 
       &__list {
         list-style: none;
@@ -64,15 +82,11 @@
         width: 100%;
         max-width: 100%;
         margin: 0px;
+        padding: 0px;
+        padding-top: 10px;
         background-color: $-c-inputDark;
         max-height: 500px;
         overflow: auto;
-        &__item {
-          margin: 0px 0px 5px 0px;
-          padding: 5px 10px;
-          list-style: none;
-          overflow-y: hidden;
-        }
       }
     }
   }
@@ -80,7 +94,6 @@
 // Mobile //
 @media (max-width: 480px) {
   .navbar__searchBox__results {
-    padding-top: 50px;
     display: none;
     visibility: visible;
     transition: 0.2s width linear;
@@ -93,8 +106,12 @@
       transition: 0.4s linear;
       position: relative;
       width: 80px;
+      height: 100%;
       justify-content: center;
       align-items: center;
+      &__results {
+        padding-top: 45px;
+      }
       &:focus-within {
         position: absolute;
         right: 15px;
@@ -112,7 +129,6 @@
           }
         }
         .navbar__searchBox__results {
-          padding-top: 50px;
           display: flex;
           visibility: visible;
           transition: 0.2s width linear;

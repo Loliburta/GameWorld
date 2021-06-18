@@ -6,10 +6,11 @@ import { useDebounce } from "use-debounce";
 import { SearchGames } from "../../utils/searchGames/SearchGames";
 import { Types as searchType } from "../../utils/searchGames/interface";
 import { useClickOutside } from "../../hooks/useClickOutside";
+import { ListItem } from "./listItem/ListItem";
 
 export const Navbar = () => {
   const [query, setQuery] = useState("");
-  const [searchQuery] = useDebounce(query, 1000);
+  const [searchQuery] = useDebounce(query, 700);
   const [searchResults, setSearchResults] = useState<searchType | undefined>();
   const [games, setGames] = useState<searchType["results"] | undefined>();
   const navRef = useRef(null);
@@ -63,14 +64,7 @@ export const Navbar = () => {
           >
             <ul className="navbar__searchBox__results__list">
               {games?.map((game) => {
-                return (
-                  <li
-                    className="navbar__searchBox__results__list__item"
-                    key={game.name}
-                  >
-                    {game.name}
-                  </li>
-                );
+                return <ListItem {...game} key={game.id} />;
               })}
             </ul>
           </div>
