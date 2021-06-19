@@ -4,11 +4,10 @@ import { Result as gameType } from "../../utils/getRelevantGames/interface";
 import { Types as DetailsType } from "../../utils/getGameDetails/interface";
 import { Icon } from "@iconify/react";
 import star from "@iconify-icons/carbon/star-filled";
+import { resize } from "../../utils/resize";
 export const Game: React.FC<gameType> = (game) => {
   const [gameDetails, setGameDetails] = useState<DetailsType>();
-  const resize = (link: string, width: number) => {
-    return link.replace("media/", `media/resize/${width}/-/`);
-  };
+
   useEffect(() => {
     const fetchGameDetails = async () => {
       setGameDetails(await getGameDetails(game.id));
