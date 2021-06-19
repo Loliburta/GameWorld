@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/GameWorld/static/css/main.5408b41b.chunk.css",
-    "main.js": "/GameWorld/static/js/main.7c4cf803.chunk.js",
-    "main.js.map": "/GameWorld/static/js/main.7c4cf803.chunk.js.map",
+    "main.css": "/GameWorld/static/css/main.71d32580.chunk.css",
+    "main.js": "/GameWorld/static/js/main.8786700e.chunk.js",
+    "main.js.map": "/GameWorld/static/js/main.8786700e.chunk.js.map",
     "runtime-main.js": "/GameWorld/static/js/runtime-main.fa4ecc73.js",
     "runtime-main.js.map": "/GameWorld/static/js/runtime-main.fa4ecc73.js.map",
-    "static/js/2.bfa85af5.chunk.js": "/GameWorld/static/js/2.bfa85af5.chunk.js",
-    "static/js/2.bfa85af5.chunk.js.map": "/GameWorld/static/js/2.bfa85af5.chunk.js.map",
+    "static/js/2.14143de2.chunk.js": "/GameWorld/static/js/2.14143de2.chunk.js",
+    "static/js/2.14143de2.chunk.js.map": "/GameWorld/static/js/2.14143de2.chunk.js.map",
     "index.html": "/GameWorld/index.html",
-    "static/css/main.5408b41b.chunk.css.map": "/GameWorld/static/css/main.5408b41b.chunk.css.map",
-    "static/js/2.bfa85af5.chunk.js.LICENSE.txt": "/GameWorld/static/js/2.bfa85af5.chunk.js.LICENSE.txt",
+    "static/css/main.71d32580.chunk.css.map": "/GameWorld/static/css/main.71d32580.chunk.css.map",
+    "static/js/2.14143de2.chunk.js.LICENSE.txt": "/GameWorld/static/js/2.14143de2.chunk.js.LICENSE.txt",
     "static/media/Logo.0d1db6e9.svg": "/GameWorld/static/media/Logo.0d1db6e9.svg",
     "static/media/default.8b644eb3.svg": "/GameWorld/static/media/default.8b644eb3.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.fa4ecc73.js",
-    "static/js/2.bfa85af5.chunk.js",
-    "static/css/main.5408b41b.chunk.css",
-    "static/js/main.7c4cf803.chunk.js"
+    "static/js/2.14143de2.chunk.js",
+    "static/css/main.71d32580.chunk.css",
+    "static/js/main.8786700e.chunk.js"
   ]
 }
