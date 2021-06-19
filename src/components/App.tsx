@@ -3,10 +3,8 @@ import { Navbar } from "./navbar/Navbar";
 import { Game } from "./game/Game";
 import { getRelevantGames } from "../utils/getRelevantGames/getRelevantGames";
 import { Result as gameType } from "../utils/getRelevantGames/interface";
-import { HashRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { HashRouter as Router, Switch, Route } from "react-router-dom";
 import { FullGameInfo } from "./fullGameInfo/FullGameInfo";
-// const apiKey = `key=${process.env.REACT_APP_API_KEY}`;
-
 export const App = () => {
   const [gameList, setGameList] = useState<gameType[]>();
   useEffect(() => {

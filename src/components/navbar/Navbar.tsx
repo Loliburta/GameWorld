@@ -11,7 +11,6 @@ import { ListItem } from "./listItem/ListItem";
 export const Navbar = () => {
   const [query, setQuery] = useState("");
   const [searchQuery] = useDebounce(query, 700);
-  const [searchResults, setSearchResults] = useState<searchType | undefined>();
   const [games, setGames] = useState<searchType["results"] | undefined>();
   const navRef = useRef(null);
   const [resultsVisible, setResultsVisible] = useState(true);
@@ -24,8 +23,6 @@ export const Navbar = () => {
     const fetchSearchGames = async () => {
       const result = await SearchGames(searchQuery);
       setGames(result.results);
-      setSearchResults(result);
-      console.log(result);
     };
     fetchSearchGames();
   }, [searchQuery]);

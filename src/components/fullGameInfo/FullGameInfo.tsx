@@ -14,10 +14,9 @@ export const FullGameInfo = () => {
   useEffect(() => {
     const fetchGameDetails = async () => {
       setGameDetails(await getGameDetails(parseInt(gameID)));
-      console.log(gameDetails);
     };
     fetchGameDetails();
-  }, [gameID]);
+  }, [gameID, gameDetails]);
   return (
     <div className="fullGame">
       <div className="fullGame__name">{gameDetails?.name}</div>
@@ -75,9 +74,13 @@ export const FullGameInfo = () => {
                 {gameDetails?.tags
                   .filter(
                     (tag) =>
-                      !["steam-trading-cards", "In-App Purchases"].includes(
-                        tag.name
-                      )
+                      ![
+                        "steam-trading-cards",
+                        "In-App Purchases",
+                        "Steam Achievements",
+                        "Full controller support",
+                        "cooperative",
+                      ].includes(tag.name)
                   )
                   .slice(0, 4)
                   .map((tag) => (
@@ -87,14 +90,14 @@ export const FullGameInfo = () => {
                   ))}
               </div>
             </div>
-            {gameDetails?.tags ? <br /> : ""}
+            {gameDetails?.tags ? <div className="br"></div> : ""}
             <div className="fullGame__out__in__left__platformsDiv">
               <div className="fullGame__out__in__left__platformsDiv__name">
                 PLATFORMS
               </div>
               <div className="fullGame__out__in__left__platformsDiv__value">
                 {gameDetails?.platforms.map(
-                  (platform) => platform.platform.name
+                  (platform) => platform.platform.name + " "
                 )}
               </div>
             </div>
