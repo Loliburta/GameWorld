@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import { resize } from "../../utils/resize";
 import { Row } from "./row/Row";
 import defaultImg from "../../svg/default.svg";
+import { PlatformToIcon } from "./platformToIcon/PlatformToIcon";
 interface ParamTypes {
   gameID: string;
 }
@@ -96,9 +97,9 @@ export const FullGameInfo = () => {
                 PLATFORMS
               </div>
               <div className="fullGame__out__in__left__platformsDiv__value">
-                {gameDetails?.platforms.map(
-                  (platform) => platform.platform.name + " "
-                )}
+                {gameDetails?.platforms.map((platform) => (
+                  <PlatformToIcon name={platform.platform.name} />
+                ))}
               </div>
             </div>
           </div>

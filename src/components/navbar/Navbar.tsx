@@ -7,6 +7,7 @@ import { SearchGames } from "../../utils/searchGames/SearchGames";
 import { Types as searchType } from "../../utils/searchGames/interface";
 import { useClickOutside } from "../../hooks/useClickOutside";
 import { ListItem } from "./listItem/ListItem";
+import { Link } from "react-router-dom";
 
 export const Navbar = () => {
   const [query, setQuery] = useState("");
@@ -34,7 +35,9 @@ export const Navbar = () => {
 
   return (
     <div className="navbar">
-      <img src={Logo} alt="Logo" className="navbar__logo" />
+      <Link to={`/`}>
+        <img src={Logo} alt="Logo" className="navbar__logo" />
+      </Link>
       <div
         className="navbar__searchBox"
         ref={navRef}
