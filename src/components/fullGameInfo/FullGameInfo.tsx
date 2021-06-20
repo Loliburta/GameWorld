@@ -16,7 +16,7 @@ export const FullGameInfo = () => {
       setGameDetails(await getGameDetails(parseInt(gameID)));
     };
     fetchGameDetails();
-  }, [gameID, gameDetails]);
+  }, [gameID]);
   return (
     <div className="fullGame">
       <div className="fullGame__name">{gameDetails?.name}</div>
@@ -82,7 +82,7 @@ export const FullGameInfo = () => {
                         "cooperative",
                       ].includes(tag.name)
                   )
-                  .slice(0, 4)
+                  .slice(0, 5)
                   .map((tag) => (
                     <div className="fullGame__out__in__left__tagsDiv__values__value">
                       {tag.name}

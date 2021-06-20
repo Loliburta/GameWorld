@@ -1,15 +1,16 @@
 .fullGame {
-  margin-top: 50px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  max-width: 1500px;
+  margin: 0 auto;
+  margin-top: 50px;
+  padding: 0px 10px;
 
   &__name {
     display: flex;
     font-family: $-f-staatliches;
-    font-size: 45px;
-    width: 1500px;
+    font-size: clamp(26px, 6vw, 45px);
+    text-align: left;
     letter-spacing: 0.05em;
     padding-left: 32px;
   }
@@ -17,7 +18,6 @@
     display: flex;
     border: 2px solid white;
     position: relative;
-    width: 1500px;
     border-radius: 27px;
 
     &__img {
@@ -70,6 +70,7 @@
             display: flex;
             font-weight: 300;
             width: 215px;
+            padding-bottom: 5px;
           }
           &__values {
             display: flex;
@@ -106,12 +107,87 @@
         &__about {
           display: flex;
           font-weight: 500;
-          font-size: 30px;
+          font-size: clamp(20px, 5vw, 30px);
           padding-bottom: 10px;
         }
         &__desc {
           display: flex;
           letter-spacing: 0.02em;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 769px) {
+  .fullGame {
+    &__out {
+      &__in {
+        flex-direction: column;
+        padding: 20px 30px 20px 30px;
+        &__left {
+          &__img {
+            width: 100%;
+            height: clamp(200px, 40vw, 280px);
+            object-fit: cover;
+          }
+        }
+        &__right {
+          padding-left: 0px;
+        }
+        &__left {
+          &__platformsDiv {
+            margin-bottom: 25px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 481px) {
+  .fullGame {
+    &__name {
+      padding-left: 10px;
+    }
+    &__out {
+      &__in {
+        flex-direction: column;
+        padding: 10px 10px 20px 10px;
+        &__left {
+          font-size: 14px;
+          &__img {
+            width: 100%;
+            height: clamp(100px, 40vw, 280px);
+            object-fit: cover;
+          }
+          &__rowDiv {
+            &__name {
+              width: 180px;
+            }
+          }
+          &__tagsDiv {
+            &__values {
+              &__value {
+                font-size: 12px;
+                padding: 3px 6px;
+              }
+            }
+          }
+        }
+        &__right {
+          padding-left: 0px;
+          &__about {
+            display: flex;
+            font-weight: 500;
+            padding-bottom: 10px;
+          }
+          &__desc {
+            display: flex;
+            letter-spacing: 0.01em;
+            font-size: 14px;
+            padding-right: 2px;
+          }
         }
       }
     }
