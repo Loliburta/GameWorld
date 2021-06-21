@@ -5,6 +5,7 @@ import { Types as DetailsType } from "../../utils/getGameDetails/interface";
 import { Icon } from "@iconify/react";
 import star from "@iconify-icons/carbon/star-filled";
 import { resize } from "../../utils/resize";
+import { Link } from "react-router-dom";
 export const Game: React.FC<gameType> = (game) => {
   const [gameDetails, setGameDetails] = useState<DetailsType>();
 
@@ -17,12 +18,14 @@ export const Game: React.FC<gameType> = (game) => {
   }, [game.id]);
   return (
     <div className="game">
-      <div className="game__top">
-        <img
-          src={resize(game.background_image, 420)}
-          alt="background"
-          className="game__top__img"
-        />
+      <Link to={`/game/${game.id}`} className="game__top">
+        <div className="game__top__imgDiv">
+          <img
+            src={resize(game.background_image, 420)}
+            alt="background"
+            className="game__top__imgDiv__img"
+          />
+        </div>
         <div className="game__top__rating">
           <Icon icon={star} className="game__top__rating__star" />
           <div className="game__top__rating__text">
@@ -42,7 +45,7 @@ export const Game: React.FC<gameType> = (game) => {
             </div>
           ))}
         </div>
-      </div>
+      </Link>
 
       {/* <div>{game.id}</div> */}
       <div className="game__bot">

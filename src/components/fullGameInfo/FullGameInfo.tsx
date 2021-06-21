@@ -9,7 +9,7 @@ import { PlatformToIcon } from "./platformToIcon/PlatformToIcon";
 interface ParamTypes {
   gameID: string;
 }
-export const FullGameInfo = () => {
+const FullGameInfo = () => {
   const [gameDetails, setGameDetails] = useState<DetailsType>();
   const { gameID } = useParams<ParamTypes>();
   useEffect(() => {
@@ -116,3 +116,4 @@ export const FullGameInfo = () => {
     </div>
   );
 };
+export default FullGameInfo;

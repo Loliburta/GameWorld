@@ -1,10 +1,10 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect, lazy } from "react";
 import { Navbar } from "./navbar/Navbar";
 import { Game } from "./game/Game";
 import { getRelevantGames } from "../utils/getRelevantGames/getRelevantGames";
 import { Result as gameType } from "../utils/getRelevantGames/interface";
 import { HashRouter as Router, Switch, Route } from "react-router-dom";
-import { FullGameInfo } from "./fullGameInfo/FullGameInfo";
+const FullGameInfo = lazy(() => import("./fullGameInfo/FullGameInfo"));
 export const App = () => {
   const [gameList, setGameList] = useState<gameType[]>();
   useEffect(() => {
@@ -25,9 +25,11 @@ export const App = () => {
               ))}
             </div>
           </Route>
-          <Route exact path="/game/:gameID">
-            <FullGameInfo />
-          </Route>
+          <React.Suspense fallback={"loading"}>
+            <Route exact path="/game/:gameID">
+              <FullGameInfo />
+            </Route>
+          </React.Suspense>
         </Switch>
       </Router>
     </div>

@@ -14,6 +14,7 @@ import snesIcon from "@iconify-icons/whh/controllersnes";
 import wiiIcon from "@iconify-icons/cib/wii";
 import wiiuIcon from "@iconify-icons/cib/wiiu";
 import gameboyIcon from "@iconify-icons/whh/gameboy";
+import appleIcon from "@iconify-icons/ant-design/apple-filled";
 
 type IconObjectType = {
   [key: string]: JSX.Element;
@@ -24,10 +25,10 @@ interface Props {
 export const PlatformToIcon: React.FC<Props> = ({ name }) => {
   const iconObject: IconObjectType = {
     PC: <Icon icon={windowsIcon} />,
-    "PlayStation 2": <Icon icon={playstation2Icon} />,
-    "PlayStation 3": <Icon icon={playstation3Icon} />,
-    "PlayStation 4": <Icon icon={playstation4Icon} />,
-    "PlayStation 5": <Icon icon={playstation5Icon} />,
+    "PlayStation 2": <Icon icon={playstation2Icon} width="32px" />,
+    "PlayStation 3": <Icon icon={playstation3Icon} width="32px" />,
+    "PlayStation 4": <Icon icon={playstation4Icon} width="32px" />,
+    "PlayStation 5": <Icon icon={playstation5Icon} width="32px" />,
     "PS Vita": <Icon icon={playstationvitaIcon} />,
     "Nintendo Switch": <Icon icon={nintendoswitchIcon} />,
     GameCube: <Icon icon={nintendogamecubeIcon} />,
@@ -37,6 +38,7 @@ export const PlatformToIcon: React.FC<Props> = ({ name }) => {
     Wii: <Icon icon={wiiIcon} />,
     "Wii U": <Icon icon={wiiuIcon} />,
     "Game Boy Color": <Icon icon={gameboyIcon} />,
+    iOS: <Icon icon={appleIcon} />,
   };
   if (iconObject[name]) {
     return <div className="platform__icon">{iconObject[name]}</div>;
