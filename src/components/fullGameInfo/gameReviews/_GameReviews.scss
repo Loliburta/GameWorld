@@ -1,0 +1,18 @@
+.review {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border: 1px solid white;
+  border-radius: 16px;
+  padding: 20px 35px;
+  margin-bottom: 25px;
+  line-height: 25px;
+  text-align: left;
+  font-family: $-f-robotoMono;
+  &__stars {
+    font-size: 22px;
+  }
+  &__created {
+    font-weight: 300;
+  }
+}

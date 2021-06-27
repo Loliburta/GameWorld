@@ -114,8 +114,21 @@
         &__desc {
           display: flex;
           letter-spacing: 0.02em;
+          line-height: 20px;
         }
       }
+    }
+  }
+  &__reviews {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    &__title {
+      font-size: 30px;
+      font-weight: 500;
+      margin-bottom: 5px;
     }
   }
 }

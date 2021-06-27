@@ -14,7 +14,6 @@ export const Game: React.FC<gameType> = (game) => {
       setGameDetails(await getGameDetails(game.id));
     };
     fetchGameDetails();
-    //TODO add game description
   }, [game.id]);
   return (
     <div className="game">
@@ -47,7 +46,6 @@ export const Game: React.FC<gameType> = (game) => {
         </div>
       </Link>
 
-      {/* <div>{game.id}</div> */}
       <div className="game__bot">
         <div className="game__bot__text">{gameDetails?.description_raw}</div>
       </div>
