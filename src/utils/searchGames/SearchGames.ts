@@ -2,10 +2,6 @@ import { Types } from "./interface";
 const apiKey = `key=${process.env.REACT_APP_API_KEY}`;
 
 export const SearchGames = async (searchQuery: string) => {
-  console.log(searchQuery);
-  console.log(
-    `https://api.rawg.io/api/games?${apiKey}&search=${searchQuery.toLowerCase()}&page_size=20`
-  );
   const res = await fetch(
     `https://api.rawg.io/api/games?${apiKey}&search=${searchQuery.toLowerCase()}&page_size=20`
   );

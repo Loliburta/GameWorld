@@ -39,6 +39,7 @@ export const PlatformToIcon: React.FC<Props> = ({ name }) => {
     "Wii U": <Icon icon={wiiuIcon} />,
     "Game Boy Color": <Icon icon={gameboyIcon} />,
     iOS: <Icon icon={appleIcon} />,
+    macOS: <Icon icon={appleIcon} />,
   };
   if (iconObject[name]) {
     return <div className="platform__icon">{iconObject[name]}</div>;
