@@ -9,33 +9,12 @@ import { Row } from "./row/Row";
 import defaultImg from "../../svg/default.svg";
 import { PlatformToIcon } from "./platformToIcon/PlatformToIcon";
 import GameReview from "./gameReviews/GameReviews";
+import { readableDate } from "../../utils/readableDate";
 interface ParamTypes {
   gameID: string;
 }
 const FullGameInfo = () => {
-  const readableDate = (date: string | undefined | null) => {
-    if (!date) {
-      return "";
-    }
-    const months: { [key: string]: string } = {
-      "01": "Jan",
-      "02": "Feb",
-      "03": "Mar",
-      "04": "Apr",
-      "05": "May",
-      "06": "Jun",
-      "07": "Jul",
-      "08": "Aug",
-      "09": "Sep",
-      "10": "Oct",
-      "11": "Nov",
-      "12": "Dec",
-    };
-    let [year, month, day] = date.split("-");
-    day = day[0] === "0" ? day[1] : day;
-    month = months[month];
-    return `${day} ${month}, ${year}`;
-  };
+  const [showMore, setShowMore] = useState(false);
   const [gameDetails, setGameDetails] = useState<DetailsType>();
   const [gameReviews, setGameReviews] = useState<ReviewsType>();
   const { gameID } = useParams<ParamTypes>();
@@ -151,12 +130,25 @@ const FullGameInfo = () => {
             </div>
           </div>
         </div>
-        <div className="fullGame__reviews">
-          <div className="fullGame__reviews__title">Reviews</div>
-          {gameReviews?.results.map((result) => {
-            return <GameReview {...result} key={result.id} />;
-          })}
-        </div>
+        {gameReviews && gameReviews.results.length !== 0 && (
+          <div className="fullGame__reviews">
+            <div className="fullGame__reviews__title">Reviews</div>
+            {showMore
+              ? gameReviews?.results.map((result) => {
+                  return <GameReview {...result} key={result.id} />;
+                })
+              : gameReviews?.results.slice(0, 2).map((result) => {
+                  return <GameReview {...result} key={result.id} />;
+                })}
+
+            <div
+              className="fullGame__reviews__showMore"
+              onClick={() => setShowMore(!showMore)}
+            >
+              {showMore ? "Show less" : "Show more"}
+            </div>
+          </div>
+        )}
       </div>
     </>
   );

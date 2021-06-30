@@ -120,6 +120,8 @@
     }
   }
   &__reviews {
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -129,6 +131,19 @@
       font-size: 30px;
       font-weight: 500;
       margin-bottom: 5px;
+    }
+    &__showMore {
+      display: flex;
+      font-size: 20px;
+      font-weight: 500;
+      border: 2px solid $-c-darkYellow;
+      padding: 5px 10px;
+      border-radius: 9px;
+      cursor: pointer;
+      transition: 0.5s background-color ease;
+      &:hover {
+        background-color: rgba(239, 186, 113, 0.1);
+      }
     }
   }
 }
