@@ -146,6 +146,38 @@
       }
     }
   }
+  &__screenshots {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 60px;
+    margin-bottom: 50px;
+    &__header {
+      font-size: clamp(20px, 5vw, 30px);
+      font-weight: 500;
+      font-family: $-f-roboto;
+      margin-bottom: 5px;
+    }
+    &__screens {
+      display: grid;
+      width: 100%;
+      padding: 20px 35px;
+      border: 1px solid white;
+      border-radius: 16px;
+      grid-template-columns: repeat(auto-fill, minmax(370px, 1fr));
+      gap: 12px;
+      &__screen {
+        width: 100%;
+        border-radius: 3px;
+      }
+    }
+  }
+}
+@media (max-width: 900px) {
+  .fullGame__screenshots__screens {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  }
 }
 
 @media (max-width: 769px) {
@@ -175,6 +207,9 @@
 }
 
 @media (max-width: 481px) {
+  .fullGame__screenshots__screens {
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  }
   .fullGame {
     &__name {
       padding-left: 10px;
@@ -218,6 +253,11 @@
             padding-right: 2px;
           }
         }
+      }
+    }
+    &__screenshots {
+      &__screens {
+        padding: 20px 10px;
       }
     }
   }

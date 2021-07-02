@@ -8,7 +8,9 @@ import { resize } from "../../utils/resize";
 import { Row } from "./row/Row";
 import defaultImg from "../../svg/default.svg";
 import { PlatformToIcon } from "./platformToIcon/PlatformToIcon";
-import GameReview from "./gameReviews/GameReviews";
+import GameReview from "./gameReview/GameReview";
+import { getGameScreenshots } from "../../utils/getGameScreenshots/getGameScreenshots";
+import { Types as ScreenshotsType } from "../../utils/getGameScreenshots/interface";
 import { readableDate } from "../../utils/readableDate";
 interface ParamTypes {
   gameID: string;
@@ -17,6 +19,7 @@ const FullGameInfo = () => {
   const [showMore, setShowMore] = useState(false);
   const [gameDetails, setGameDetails] = useState<DetailsType>();
   const [gameReviews, setGameReviews] = useState<ReviewsType>();
+  const [gameScreenshots, setGameScreenshots] = useState<ScreenshotsType>();
   const { gameID } = useParams<ParamTypes>();
   useEffect(() => {
     const fetchGameDetails = async () => {
@@ -25,6 +28,14 @@ const FullGameInfo = () => {
     };
     fetchGameDetails();
   }, [gameID]);
+  useEffect(() => {
+    if (gameDetails?.screenshots_count) {
+      const fetchScreenshots = async () => {
+        setGameScreenshots(await getGameScreenshots(parseInt(gameID)));
+      };
+      fetchScreenshots();
+    }
+  }, [gameDetails, gameID]);
   return (
     <>
       <div className="fullGame">
@@ -146,6 +157,31 @@ const FullGameInfo = () => {
               onClick={() => setShowMore(!showMore)}
             >
               {showMore ? "Show less" : "Show more"}
+            </div>
+          </div>
+        )}
+        {gameScreenshots && (
+          <div className="fullGame__screenshots">
+            <div className="fullGame__screenshots__header">Screenshots</div>
+            <div className="fullGame__screenshots__screens">
+              {gameScreenshots.results
+                .filter(
+                  (screen, idx, screens) =>
+                    screens.findIndex(
+                      (otherScreen) => otherScreen.id === screen.id
+                    ) === idx
+                )
+                .slice(0, 6)
+                .map((screen) => {
+                  return (
+                    <img
+                      key={screen.id}
+                      src={resize(screen.image, 420)}
+                      alt="screenshot"
+                      className="fullGame__screenshots__screens__screen"
+                    />
+                  );
+                })}
             </div>
           </div>
         )}

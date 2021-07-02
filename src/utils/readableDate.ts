@@ -1,4 +1,4 @@
-export const readableDate = (date: string | undefined | null) => {
+export const readableDate = (date: Date | string | undefined | null) => {
   if (!date) {
     return "";
   }
@@ -16,7 +16,7 @@ export const readableDate = (date: string | undefined | null) => {
     "11": "Nov",
     "12": "Dec",
   };
-  let [year, month, day] = date.split("-");
+  let [year, month, day] = date.toString().slice(0, 10).split("-");
   day = day[0] === "0" ? day[1] : day;
   month = months[month];
   return `${day} ${month}, ${year}`;

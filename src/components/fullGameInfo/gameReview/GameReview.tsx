@@ -1,18 +1,8 @@
 import { Result as ReviewType } from "../../../utils/getGameReviews/interface";
+import { readableDate } from "../../../utils/readableDate";
 import dompurify from "dompurify";
 
 const GameReview: React.FC<ReviewType> = (review) => {
-  const readableDate = (date: Date) => {
-    date = new Date(date);
-    const day = date.getDay().toLocaleString("en-US", {
-      minimumIntegerDigits: 2,
-    });
-    const month = (date.getMonth() + 1).toLocaleString("en-US", {
-      minimumIntegerDigits: 2,
-    });
-    const year = date.getFullYear();
-    return `${day}/${month}/${year}`;
-  };
   return (
     <div className="review">
       <p

@@ -16,3 +16,10 @@
     font-weight: 300;
   }
 }
+
+@media (max-width: 481px) {
+  .review {
+    padding: 10px 10px;
+    font-size: 14px;
+  }
+}
